@@ -6959,11 +6959,11 @@
                     { id: 2, label: '무기' },
                 ],
                 weaponlevellist: [
-                    { id: 1, label: '1레벨 무기', upgradeatk: 2, saferefine: 7, overatk: 3, over15: 3, refineatk: [0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,48,51,54,57,60], overrefineatk: [0,0,0,0,0,0,0,0,3,6,9,12,15,18,21,24,27,30,33,36,39] },
-                    { id: 2, label: '2레벨 무기', upgradeatk: 3, saferefine: 6, overatk: 5, over15: 5, refineatk: [0,3,6,9,12,15,18,21,24,27,30,33,36,39,42,45,80,85,90,95,100], overrefineatk: [0,0,0,0,0,0,0,5,10,15,20,25,30,35,40,45,50,55,60,65,70] },
-                    { id: 3, label: '3레벨 무기', upgradeatk: 5, saferefine: 5, overatk: 8, over15: 7, refineatk: [0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,112,119,126,133,140], overrefineatk: [0,0,0,0,0,0,8,16,24,32,40,48,56,64,72,80,88,96,104,112,120] },
-                    { id: 4, label: '4레벨 무기', upgradeatk: 7, saferefine: 4, overatk: 14, over15: 10, refineatk: [0,7,14,21,28,35,42,49,56,63,70,77,84,91,98,105,160,170,180,190,200], overrefineatk: [0,0,0,0,0,14,28,42,56,70,84,98,112,126,140,154,168,182,196,210,224] },
-                    { id: 5, label: '5레벨 무기', upgradeatk: [8, 8.8, 10.4, 12, 16], saferefine: 4, overatk: 0, over15: 0 }
+                    { id: 1, label: '1레벨 무기', upgradeatk: 2, saferefine: 7, overatk: 3 },
+                    { id: 2, label: '2레벨 무기', upgradeatk: 3, saferefine: 6, overatk: 5 },
+                    { id: 3, label: '3레벨 무기', upgradeatk: 5, saferefine: 5, overatk: 8 },
+                    { id: 4, label: '4레벨 무기', upgradeatk: 7, saferefine: 4, overatk: 14 },
+                    { id: 5, label: '5레벨 무기', upgradeatk: [8, 8.8, 10.4, 12, 16], saferefine: 4, overatk: 0 }
                 ],
                 weapongradelist: [
                     { id: 0, label: '없음' },
@@ -8878,23 +8878,25 @@
                         this.weapon.refinematk = this.weapon.refineatk;
                         this.weapon.refineatk2 = 0;
                     }else{
-                        //一般精煉ATK
-                        this.weapon.refineatk = this.weaponlevellist[this.weapon.level.id - 1].refineatk[this.weapon.refinelevel];
+                        this.weapon.refineatk = this.weapon.refinelevel * this.weaponlevellist[this.weapon.level.id - 1].upgradeatk;
                         this.weapon.refinematk = this.weapon.refineatk;
-                        this.subweapon.refineatk = this.weaponlevellist[this.subweapon.level.id - 1].refineatk[this.subweapon.refinelevel];
+                        this.subweapon.refineatk = this.subweapon.refinelevel * this.weaponlevellist[this.subweapon.level.id - 1].upgradeatk;
                         this.subweapon.refinematk = this.subweapon.refineatk;
-                         //過度精煉ATK(>安定值)
-                        this.weapon.refineatk2 = this.weaponlevellist[this.weapon.level.id - 1].overrefineatk[this.weapon.refinelevel];
-                        //弓沒有過度，沒有一般精煉魔攻
+                        if (this.weapon.refinelevel <= this.weaponlevellist[this.weapon.level.id - 1].saferefine) {
+                            this.weapon.refineatk2 = 0;
                         }
+                        else {
+                            this.weapon.refineatk2 = (this.weapon.refinelevel - this.weaponlevellist[this.weapon.level.id - 1].saferefine)
+                                * this.weaponlevellist[this.weapon.level.id - 1].overatk
+                        }
+
                         if (this.weapon.type.id === 'Bows') {
                             this.weapon.refinematk = 0;
                             this.weapon.refineatk2 = 0;
                         }
-                        //只有魔攻要計算雙手
-                         this.weapon.refinematk = this.weapon.refinematk + this.subweapon.refinematk;
+                        this.weapon.refineatk = this.weapon.refineatk;
+                        this.weapon.refinematk = this.weapon.refinematk + this.subweapon.refinematk;
                     }
-                    //副手
                     if (this.subweapon.type.id == 2)
                     {
                         this.subweapon.refinematk = 0;
@@ -10841,13 +10843,6 @@
                     this.option.EquipSkillAddDamage = 0;
                     this.supportSkillEffects = []; //  보조 스킬 증뎀 기록 초기화
                     this.supportEffectDetails = [];
-                     // 武器、精煉 ATK/MATK 明細
-                    this.addSupportEffectDetail('Atk', null, this.weapon.ATK, '武器ATK');
-                    this.addSupportEffectDetail('Matk', null, this.weapon.MATK, '武器MATK');
-                    this.addSupportEffectDetail('Atk', null, this.weapon.refineatk, '一般精煉ATK');
-                    this.addSupportEffectDetail('Matk', null, this.weapon.refinematk, '一般精煉MATK');
-                    this.addSupportEffectDetail('Atk', null, this.weapon.refineatk2, '過度精煉ATK(不顯示)');
-                    this.addSupportEffectDetail('Matk', null, this.weapon.refineatk2, '過度精煉MATK(不顯示)');
                     // 무기 수련 입력값이 없으면 0으로 세팅
                     if (this.skilloption.WeaponMasteryATKInput == '') this.skilloption.WeaponMasteryATKInput = 0;
                     this.skilloption.WeaponMasteryATK = this.skilloption.WeaponMasteryATKInput;
