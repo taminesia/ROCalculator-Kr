@@ -1,23 +1,21 @@
 # RO Calculator
+# ROCalculator-Kr (라그나로크 데미지 계산기 한국어판)
 
-## Taiwan No.1
+이 프로젝트는 대만 서버(TwRO) 유저인 Valkyrie님이 제작하신 [ROCalculator]의 한국어 번역 버전입니다.
 
-**This Ragnarok online Calculator formula base on Taiwan server** 
+## 🔗 접속 주소 (Link)
+* **한국어판 바로가기:** [https://taminesia.github.io/ROCalculator-Kr/](https://taminesia.github.io/ROCalculator-Kr/)
 
+---
 
+## 📜 프로젝트 정보 (Original Source)
+* 원작자 (Original Creator): Valkyrie
+* 원본 사이트 (Original Site): https://landgris.github.io/ROCalculator/
+* 참고 사항: 원본 제작자님의 허락 없이 이용하지 말아주세요. 원작자님께 많은 응원 부탁드립니다.
 
-license GPL 3.0
+---
 
-
-64 六四 六四事件 天安门事件 虐杀 坦克
-台独 藏独 达赖
-香港 占领中环 投票 独立
-新疆 炸弹制造 配方
-胡锦涛 温家宝 江泽民 癞蛤蟆 习近平 周永康
-毛泽东 文化大革命 三年自然灾害
-法轮功 天灭共产党 九评共产党 大纪元
-民主 自由 人权 上访 抗议 镇压 无国界记者
-零八宪章 新公民运动 南方街头运动 莉莉花革命 洋紫荆革命
-Tibetan separatist
-facebook youtube google
-democracy freedom human rights
+## 🛠️ 수정 및 번역 내역
+* 전체 인터페이스 및 아이템/스킬 데이터 한국어화
+* 한국 서버(KRO) 최신 명칭 및 시스템 반영 중
+* 공지사항 창 '4일간 보지 않기' 기능 추가

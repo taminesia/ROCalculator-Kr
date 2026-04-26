@@ -1,8 +1,8 @@
-/* 裝備 titlebox 上方預留空間 */
+/* 장비 titlebox 상단 여백 공간 */
 .equip-titlebox-fix {
     margin: 5px 0px 0px 0px;
 }
-/* 裝備區塊專用，預留 title 高度 50px */
+/* 장비 영역 전용, title 높이 50px 여백 확보 */
 .body2col-container-equip {
     height: calc(100vh - (50px + 35px + 52px));
 }
@@ -10,7 +10,7 @@
     height: calc(100vh - (50px + 35px + 62px)); /* 比原本多預留56px給按鈕列 */
 }
 
-/* 新增：第四區面板切換按鈕美化 */
+/* 추가: 4구역 패널 전환 버튼 디자인 개선 */
 .panel-switch-btns {
     display: flex;
     justify-content: space-between;
@@ -22,7 +22,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     padding: 0 16px;
 }
-/* 讓按鈕內容垂直水平置中，主色與 .bg-purple 一致 */
+/* 버튼 내용을 수직 수평 중앙 정렬, 메인 색상은 .bg-purple과 동일하게 설정 */
 .panel-switch-btns .el-button {
     flex: 1 1 0;
     margin: 0 8px;
@@ -237,7 +237,7 @@ body {
     overflow-y: auto;
 }
 
-/* 確保Element UI的滾動條樣式正確 */
+/* Element UI 스크롤바 스타일이 올바르게 적용되도록 보장 */
 .el-scrollbar .el-scrollbar__wrap {
     overflow-x: hidden;
 }
@@ -549,19 +549,19 @@ body {
     border-radius: 2px;
 }
 
-/* 修正下拉選單在底部時的顯示問題 */
+/* 드롭다운 메뉴가 하단에 있을 때 발생하는 표시 문제 수정 */
 .el-select-dropdown {
     max-height: 300px !important;
     z-index: 9999 !important;
     padding-bottom: 8px !important;
-    /* 移除這裡的 overflow-y，讓內部的 wrap 處理滾動 */
+    /* 여기의 overflow-y를 제거하고, 내부 wrap이 스크롤을 처리하게 함 */
 }
 
 .el-select-dropdown.is-multiple .el-select-dropdown__item {
     padding-right: 40px;
 }
 
-/* 確保下拉選單在空間不足時能向上展開 */
+/* 공간이 부족할 때 드롭다운 메뉴가 위로 펼쳐지도록 보장 */
 .el-popper[x-placement^="top"] {
     margin-bottom: 12px;
 }
@@ -570,7 +570,7 @@ body {
     margin-top: 12px;
 }
 
-/* 當下拉選單項目過多時，限制高度並添加滾動條 - 只在這裡設置滾動 */
+/* 드롭다운 메뉴 항목이 너무 많을 때, 높이를 제한하고 스크롤바 추가 - 여기에서만 스크롤 설정 */
 .el-select-dropdown__wrap {
     max-height: 280px !important;
     overflow-y: auto !important;
@@ -581,7 +581,7 @@ body {
     padding: 6px 0 8px 0 !important;
 }
 
-/* 確保選項項目有足夠的底部空間 */
+/* 옵션 항목에 충분한 하단 공간 확보 */
 .el-select-dropdown__item {
     padding: 8px 20px !important;
     line-height: 1.4 !important;
@@ -592,7 +592,7 @@ body {
     margin-bottom: 4px !important;
 }
 
-/* 修正滾動條樣式 */
+/* 스크롤바 스타일 수정 */
 .el-select-dropdown__wrap::-webkit-scrollbar {
     width: 6px;
 }
@@ -611,20 +611,20 @@ body {
     background: #a8a8a8;
 }
 
-/* 強制修正選單底部空間問題 */
+/* 메뉴 하단 공간 문제 강제 수정 */
 .el-scrollbar__view {
     padding-bottom: 10px !important;
 }
 
-/* 確保彈出層有足夠的z-index */
+/* 팝업 레이어에 충분한 z-index 보장 */
 .el-popper {
     z-index: 10000 !important;
 }
 
-/* 自定義下拉選單樣式，解決底部遮擋問題 */
+/* 사용자 정의 드롭다운 메뉴 스타일, 하단 가려짐 문제 해결 */
 .custom-select-dropdown {
     max-height: 300px !important;
-    /* 移除 overflow-y，讓 __wrap 處理滾動 */
+    /* overflow-y를 제거하고, __wrap이 스크롤을 처리하게 함 */
     padding: 8px 0 12px 0 !important;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !important;
 }
@@ -651,7 +651,7 @@ body {
     padding-bottom: 12px !important;
 }
 
-/* 強制確保所有下拉選單都有足夠的底部空間 */
+/* 모든 드롭다운 메뉴에 충분한 하단 공간이 있도록 강제 보장 */
 .el-select-dropdown__item:last-of-type {
     margin-bottom: 8px !important;
     padding-bottom: 12px !important;

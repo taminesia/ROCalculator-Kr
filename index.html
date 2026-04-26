@@ -451,7 +451,7 @@
                             </el-tooltip>
                             <el-row class="optionbox" :gutter="4" type="flex" align="middle" justify="end">
                                 <el-col class="textcenter" :span="12">
-                                    <span>스킬 원거리 데미지 후계산</span>
+                                    <span>스킬 계산 후 원*근증뎀 적용</span>
                                 </el-col>
                                 <el-col class="textcenter" :span="12">
                                     <el-switch v-model="skill.laterranged" active-color="#13ce66" v-on:change="onOption"
@@ -1484,7 +1484,7 @@
 
                                         <el-row :class="PreviewETL[GetETLIndex('HitAtkDamagePercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
                                             <el-col class="textcenter" :span="12">
-                                                명중시 데미지 %
+                                                명중 물리 데미지%
                                             </el-col>
                                             <el-col class="textcenter" :span="12">
                                                 <el-input v-if="PreviewETL[0]"
@@ -6652,8 +6652,7 @@
         <!-- footer -->
         <div class="ROCalFooter">
             <div type="flex" align="middle" justify="center">
-                Copyright(c) Landgris</br>
-                <a href="https://twitter.com/Landgris" target="_blank"><span style="color: white;">Twitter</span></a>
+                Copyright(c) Landgris Translated by: Taminesia</br>                
             </div>
         </div>
     </div>
